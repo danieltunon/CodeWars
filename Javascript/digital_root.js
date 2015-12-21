@@ -20,15 +20,20 @@
 // => 2 + 4
 // => 6
 
+function sum(array) {
+  return array.reduce(function(sum, current_num) {
+      return sum + parseInt(current_num, 10); 
+    }, 0);
+}
 
 function digital_root(n) {
   var digits = n.toString().split("");
   if (digits.length === 1) {
     return n;
   } else {
-    digits.reduce(function(sum, current_num) {
-      return sum + parseInt(current_num, 10); 
-    }, 0);
+    return digital_root(sum(digits));
   }
 }
+
+
 
